@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-12-23T17:52:53+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Sorted bits</title><subtitle>Random stuff</subtitle><entry><title type="html">Display value from MQTT on Button+ display</title><link href="http://localhost:4000/blog/display-mqtt-value-on-button+" rel="alternate" type="text/html" title="Display value from MQTT on Button+ display" /><published>2023-12-23T15:52:35+01:00</published><updated>2023-12-23T15:52:35+01:00</updated><id>http://localhost:4000/blog/display-mqtt-value-on-button+</id><content type="html" xml:base="http://localhost:4000/blog/display-mqtt-value-on-button+"><![CDATA[<p>So, in <a href="/blog/publish-value-to-mqtt">the last post</a> I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that.</p>
+
+<h3 id="living-room-temperature">Living room temperature</h3>
+
+<p>Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now that we have that value in MQTT. In the previous post, I published the value to the topic <code class="language-plaintext highlighter-rouge">button.plus/thermostat/current</code>, which should contain the living room temperature in Celsius.</p>
+
+<p><img src="/assets/images/button-plus-temperature-example.png" alt="image" /></p>
+<blockquote>
+  <p>The alignment on the simulator isn’t completely the same as on the device itself, it needs some tweaking sometimes.</p>
+</blockquote>
+
+<p>When opening the Button+ configuration page, you are able to add a new <strong>Display item</strong> by clicking <code class="language-plaintext highlighter-rouge">Display configuration</code> &gt; <code class="language-plaintext highlighter-rouge">Add new empty display item</code>.</p>
+
+<h4 id="appearance">Appearance</h4>
+
+<p>The first screen that shows, is the appearance configuration. These values are the ones I use to display it in the middle of the screen:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">x</span><span class="pi">:</span> <span class="m">25</span>
+<span class="na">y</span><span class="pi">:</span> <span class="m">30</span>
+<span class="na">Font size</span><span class="pi">:</span> <span class="m">5</span>
+<span class="na">Alignment</span><span class="pi">:</span> <span class="s">Top Left</span>
+<span class="na">Width</span><span class="pi">:</span> <span class="m">50</span>
+<span class="na">Number rounding</span><span class="pi">:</span> <span class="m">1</span>
+<span class="na">Label</span><span class="pi">:</span> <span class="s">&lt;empty&gt;</span>
+<span class="na">Unit</span><span class="pi">:</span> <span class="s">°C</span></code></pre></figure>
+
+<h4 id="mqtt-subscription">MQTT Subscription</h4>
+
+<p>Once you have set the appearance, you want to add a subscription to the topic we mentioned above. We do that by clicking <code class="language-plaintext highlighter-rouge">Add new empty topic</code> and then clicking the new topic that has just been created.</p>
+
+<p>In the topic details you need to fill in the following information:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">Event type</span><span class="pi">:</span> <span class="s">Value</span>
+<span class="na">Broker Id</span><span class="pi">:</span> <span class="s">&lt;your broker name&gt;</span>
+<span class="na">MQTT topic</span><span class="pi">:</span> <span class="s">button.plus/thermostat/current</span>
+<span class="na">MQTT Payload</span><span class="pi">:</span> <span class="s">&lt;empty&gt;</span></code></pre></figure>
+
+<p>That’s it! This should display your value on the display.</p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Button+" /><category term="MQTT" /><summary type="html"><![CDATA[So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that. Living room temperature Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now that we have that value in MQTT. In the previous post, I published the value to the topic button.plus/thermostat/current, which should contain the living room temperature in Celsius. The alignment on the simulator isn’t completely the same as on the device itself, it needs some tweaking sometimes. When opening the Button+ configuration page, you are able to add a new Display item by clicking Display configuration &gt; Add new empty display item. Appearance The first screen that shows, is the appearance configuration. These values are the ones I use to display it in the middle of the screen: x: 25 y: 30 Font size: 5 Alignment: Top Left Width: 50 Number rounding: 1 Label: &lt;empty&gt; Unit: °C MQTT Subscription Once you have set the appearance, you want to add a subscription to the topic we mentioned above. We do that by clicking Add new empty topic and then clicking the new topic that has just been created. In the topic details you need to fill in the following information: Event type: Value Broker Id: &lt;your broker name&gt; MQTT topic: button.plus/thermostat/current MQTT Payload: &lt;empty&gt; That’s it! This should display your value on the display.]]></summary></entry><entry><title type="html">Publish an Home Assistant value to MQTT</title><link href="http://localhost:4000/blog/publish-value-to-mqtt" rel="alternate" type="text/html" title="Publish an Home Assistant value to MQTT" /><published>2023-12-23T13:52:35+01:00</published><updated>2023-12-23T13:52:35+01:00</updated><id>http://localhost:4000/blog/publish-value-to-mqtt</id><content type="html" xml:base="http://localhost:4000/blog/publish-value-to-mqtt"><![CDATA[<p>A lot of times you want to display values on the <strong>Button+</strong> without already heaving that value available in MQTT, or maybe that value is in a different format and you want to want to publish a formatted version of that value.<!--more--></p>
+
+<p>To get started with this, I use a very simple automation for each value I need. Of course, this can probably be done in a more complex way, but the idea is to demonstrate how to get the value in MQTT.</p>
+
+<blockquote>
+  <p>This ‘tutorial’ expects you to have MQTT running and connected to both Home Assistant and Button+.</p>
+</blockquote>
+
+<h3 id="living-room-temperature">Living room temperature</h3>
+
+<p>In my case, I really want to display the living room temperature on the <strong>Button+</strong> device. This is a value that Home Assistant fetches directly, without using MQTT, from the device itself.</p>
+
+<p>For me this value is stored in a sensor called <code class="language-plaintext highlighter-rouge">sensor.living_room_temperature</code> and when I look at the value in my HA developer tools, it looks like this.</p>
+
+<p><img src="/assets/images/living_room_temperature.png" alt="image" /></p>
+
+<p>What we need now is a nice automation that tells Home Assistant to publish the temperature to MQTT each time it changes, that way the <strong>Button+</strong> can display the most recent value.</p>
+
+<p>In Home Assistant, we click <code class="language-plaintext highlighter-rouge">Settings</code> &gt; <code class="language-plaintext highlighter-rouge">Automations &amp; Scenes</code> and then <code class="language-plaintext highlighter-rouge">Create Automation</code>. We use the <code class="language-plaintext highlighter-rouge">Create new automation</code> option from the dialog that pops up.</p>
+
+<p>Here is the YAML for the automation:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">alias</span><span class="pi">:</span> <span class="s2">"</span><span class="s">[Button+]</span><span class="nv"> </span><span class="s">Living</span><span class="nv"> </span><span class="s">room</span><span class="nv"> </span><span class="s">temperature"</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">"</span>
+<span class="na">trigger</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="na">entity_id</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">sensor.living_room_temperature</span>
+<span class="na">condition</span><span class="pi">:</span> <span class="pi">[]</span>
+<span class="na">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">service</span><span class="pi">:</span> <span class="s">mqtt.publish</span>
+    <span class="na">data</span><span class="pi">:</span>
+      <span class="na">qos</span><span class="pi">:</span> <span class="m">0</span>
+      <span class="na">retain</span><span class="pi">:</span> <span class="kc">true</span>
+      <span class="na">topic</span><span class="pi">:</span> <span class="s">button.plus/thermostat/current</span>
+      <span class="na">payload</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.living_room_temperature')</span><span class="nv"> </span><span class="s">}}"</span>
+<span class="na">mode</span><span class="pi">:</span> <span class="s">single</span></code></pre></figure>
+
+<p>In this automation you can see that the trigger is a state change of the entity <code class="language-plaintext highlighter-rouge">sensor.living_room_temperature</code>. The action that is triggered is called an <code class="language-plaintext highlighter-rouge">mqtt.publish</code> and the <code class="language-plaintext highlighter-rouge">payload</code> we publish is a state from the same sensor.</p>
+
+<p>That’s it!</p>
+
+<p>A good way to monitor MQTT and see if everything is getting published correctly is by using a tool like <a href="http://mqtt-explorer.com">MQTT Explorer</a> which gives you a real-time view of the values in your MQTT broker.</p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Button+" /><category term="MQTT" /><summary type="html"><![CDATA[A lot of times you want to display values on the Button+ without already heaving that value available in MQTT, or maybe that value is in a different format and you want to want to publish a formatted version of that value.]]></summary></entry></feed>
