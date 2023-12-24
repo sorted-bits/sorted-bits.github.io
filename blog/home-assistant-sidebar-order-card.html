@@ -9,11 +9,11 @@
 
   
 
-  <title>Display value from MQTT on Button+ display</title>
+  <title>Home Assistant sidebar order card</title>
 
   
 
-  <meta name="description" content="So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that. Living room temperature Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now...">
+  <meta name="description" content="After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically! TL;DR Github link This has been a problem with Home Assistant for me, as I love to have 2 separate accounts, one admin and one normal user account. This way...">
 
   
 
@@ -72,17 +72,17 @@
 
   
   <meta property="og:site_name" content="Sorted bits">
-  <meta property="og:title" content="Display value from MQTT on Button+ display">
-  <meta property="og:description" content="So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that. Living room temperature Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now...">
+  <meta property="og:title" content="Home Assistant sidebar order card">
+  <meta property="og:description" content="After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically! TL;DR Github link This has been a problem with Home Assistant for me, as I love to have 2 separate accounts, one admin and one normal user account. This way...">
 
   
 
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="">
-  <meta property="og:article:published_time" content="2023-12-23T15:52:35+01:00">
-  <meta property="og:url" content="https://sortedbits.nl/blog/display-mqtt-value-on-button+">
-  <link rel="canonical" href="https://sortedbits.nl/blog/display-mqtt-value-on-button+">
+  <meta property="og:article:published_time" content="2023-12-24T00:00:00+01:00">
+  <meta property="og:url" content="https://sortedbits.nl/blog/home-assistant-sidebar-order-card">
+  <link rel="canonical" href="https://sortedbits.nl/blog/home-assistant-sidebar-order-card">
   
 
   
@@ -91,8 +91,8 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Display value from MQTT on Button+ display">
-  <meta property="twitter:description" content="So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that. Living room temperature Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now...">
+  <meta property="twitter:title" content="Home Assistant sidebar order card">
+  <meta property="twitter:description" content="After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically! TL;DR Github link This has been a problem with Home Assistant for me, as I love to have 2 separate accounts, one admin and one normal user account. This way...">
 
   
 
@@ -147,11 +147,11 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Display value from MQTT on Button+ display</h1>
+          <h1>Home Assistant sidebar order card</h1>
           
 
           
-            <span class="post-meta">Posted on December 23, 2023</span>
+            <span class="post-meta">Posted on December 24, 2023</span>
             
             
           
@@ -175,44 +175,55 @@
       
 
       <article role="main" class="blog-post">
-        <p>So, in <a href="/blog/publish-value-to-mqtt">the last post</a> I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that.<!--more--></p>
+        <p>After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically!<!--more--></p>
 
-<h3 id="living-room-temperature">Living room temperature</h3>
+<p><img src="https://media2.giphy.com/media/tfUW8mhiFk8NlJhgEh/200w.gif?cid=6c09b9522xyi5p51lysglw1pjnzgo1f94bh1f91pzneyslyf&amp;ep=v1_gifs_search&amp;rid=200w.gif&amp;ct=g" alt="Shocked" /></p>
 
-<p>Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now that we have that value in MQTT. In the previous post, I published the value to the topic <code class="language-plaintext highlighter-rouge">button.plus/thermostat/current</code>, which should contain the living room temperature in Celsius.</p>
+<p>TL;DR <a href="https://github.com/sorted-bits/sidebar-order-card">Github link</a></p>
 
-<p><img src="/assets/images/button-plus-temperature-example.png" alt="image" /></p>
-<blockquote>
-  <p>The alignment on the simulator isn’t completely the same as on the device itself, it needs some tweaking sometimes.</p>
-</blockquote>
+<p>This has been a problem with Home Assistant for me, as I love to have 2 separate accounts, one admin and one normal user account. This way I can keep some stuff separated. Except, logging in and out resets your dashboard order <strong>every time</strong>! I like my dashboards sorted a certain way and this <em>hack</em> does it using a card.</p>
 
-<p>When opening the Button+ configuration page, you are able to add a new <strong>Display item</strong> by clicking <code class="language-plaintext highlighter-rouge">Display configuration</code> &gt; <code class="language-plaintext highlighter-rouge">Add new empty display item</code>.</p>
+<p>After installing this card, there are 2 modes this card provides, which are:</p>
 
-<h4 id="appearance">Appearance</h4>
+<ul>
+  <li>“Show me my current order and display a configuration”-mode</li>
+  <li>“Always make sure that this is my order”-mode</li>
+</ul>
 
-<p>The first screen that shows, is the appearance configuration. These values are the ones I use to display it in the middle of the screen:</p>
+<h4 id="show-me-my-current-order-and-display-a-configuration-mode">Show me my current order and display a configuration-mode</h4>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">x</span><span class="pi">:</span> <span class="m">25</span>
-<span class="na">y</span><span class="pi">:</span> <span class="m">30</span>
-<span class="na">Font size</span><span class="pi">:</span> <span class="m">5</span>
-<span class="na">Alignment</span><span class="pi">:</span> <span class="s">Top Left</span>
-<span class="na">Width</span><span class="pi">:</span> <span class="m">50</span>
-<span class="na">Number rounding</span><span class="pi">:</span> <span class="m">1</span>
-<span class="na">Label</span><span class="pi">:</span> <span class="s">&lt;empty&gt;</span>
-<span class="na">Unit</span><span class="pi">:</span> <span class="s">°C</span></code></pre></figure>
+<p>This mode grabs your current configuration from the <code class="language-plaintext highlighter-rouge">local storage</code> and displays a configuration for this card, based on your current dashboard ordering/visibility.</p>
 
-<h4 id="mqtt-subscription">MQTT Subscription</h4>
+<p>Make sure you add this card to your default dashboard configuration (or even ALL of them, but e.g. using the <a href="https://github.com/custom-cards/decluttering-card">decluttering card</a>).</p>
 
-<p>Once you have set the appearance, you want to add a subscription to the topic we mentioned above. We do that by clicking <code class="language-plaintext highlighter-rouge">Add new empty topic</code> and then clicking the new topic that has just been created.</p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">custom:sidebar-order-card</span>
+  <span class="na">initial</span><span class="pi">:</span> <span class="kc">true</span></code></pre></figure>
 
-<p>In the topic details you need to fill in the following information:</p>
+<p>The above configuration will display the card, with your current sidebar order. It will probably look something like this.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">Event type</span><span class="pi">:</span> <span class="s">Value</span>
-<span class="na">Broker Id</span><span class="pi">:</span> <span class="s">&lt;your broker name&gt;</span>
-<span class="na">MQTT topic</span><span class="pi">:</span> <span class="s">button.plus/thermostat/current</span>
-<span class="na">MQTT Payload</span><span class="pi">:</span> <span class="s">&lt;empty&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">custom:sidebar-order-card</span>
+  <span class="na">initial</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">items</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">home-dashboard</span>
+    <span class="pi">-</span> <span class="s">woonkamer-dashboard</span>
+    <span class="pi">-</span> <span class="s">energy</span>
+    <span class="pi">-</span> <span class="s">history</span>
+  <span class="na">hiddenItems</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">developer-tools</span>
+    <span class="pi">-</span> <span class="s">logbook</span></code></pre></figure>
 
-<p>That’s it! This should display your value on the display.</p>
+<h4 id="always-make-sure-that-this-is-my-order-mode">“Always make sure that this is my order”-mode</h4>
+
+<p>Copy the configuration that is displayed by your dashboard and replace the previous one. This will make the card invisible, but every time the dashboard loads, the configuration in the <code class="language-plaintext highlighter-rouge">local storage</code> will be overwritten en your menu will have the predefined order.</p>
+
+<h4 id="remarks">Remarks</h4>
+<ul>
+  <li>New dashboards will always be visible if they are not in your configuration. I <em>think</em> they will be added to the end of the menu.</li>
+  <li>Reordering your menu and not storing that configuration in your card configuration, will end up removing your new order.</li>
+  <li>This is probably not the greatest solution for this, as this would probably be a per-user server-side configuration, but until then, this works.</li>
+</ul>
+
+<p><a href="https://github.com/sorted-bits/sidebar-order-card">Grab the card here!</a></p>
 
       </article>
 
@@ -236,13 +247,9 @@
       <ul class="pagination blog-pager">
         
         <li class="page-item previous">
-          <a class="page-link" href="/blog/publish-value-to-mqtt" data-toggle="tooltip" data-placement="top" title="Publish an Home Assistant value to MQTT">&larr; Previous Post</a>
+          <a class="page-link" href="/blog/display-mqtt-value-on-button+" data-toggle="tooltip" data-placement="top" title="Display value from MQTT on Button+ display">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="page-item next">
-          <a class="page-link" href="/blog/home-assistant-sidebar-order-card" data-toggle="tooltip" data-placement="top" title="Home Assistant sidebar order card">Next Post &rarr;</a>
-        </li>
         
       </ul>
       

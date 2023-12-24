@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://sortedbits.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sortedbits.nl/" rel="alternate" type="text/html" /><updated>2023-12-23T18:50:32+01:00</updated><id>https://sortedbits.nl/feed.xml</id><title type="html">Sorted bits</title><subtitle>Random stuff</subtitle><entry><title type="html">Display value from MQTT on Button+ display</title><link href="https://sortedbits.nl/blog/display-mqtt-value-on-button+" rel="alternate" type="text/html" title="Display value from MQTT on Button+ display" /><published>2023-12-23T15:52:35+01:00</published><updated>2023-12-23T15:52:35+01:00</updated><id>https://sortedbits.nl/blog/display-mqtt-value-on-button+</id><content type="html" xml:base="https://sortedbits.nl/blog/display-mqtt-value-on-button+"><![CDATA[<p>So, in <a href="/blog/publish-value-to-mqtt">the last post</a> I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://sortedbits.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sortedbits.nl/" rel="alternate" type="text/html" /><updated>2023-12-24T07:53:09+01:00</updated><id>https://sortedbits.nl/feed.xml</id><title type="html">Sorted bits</title><subtitle>Random stuff</subtitle><entry><title type="html">Home Assistant sidebar order card</title><link href="https://sortedbits.nl/blog/home-assistant-sidebar-order-card" rel="alternate" type="text/html" title="Home Assistant sidebar order card" /><published>2023-12-24T00:00:00+01:00</published><updated>2023-12-24T00:00:00+01:00</updated><id>https://sortedbits.nl/blog/home-assistant-sidebar-order-card</id><content type="html" xml:base="https://sortedbits.nl/blog/home-assistant-sidebar-order-card"><![CDATA[<p>After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically!<!--more--></p>
+
+<p><img src="https://media2.giphy.com/media/tfUW8mhiFk8NlJhgEh/200w.gif?cid=6c09b9522xyi5p51lysglw1pjnzgo1f94bh1f91pzneyslyf&amp;ep=v1_gifs_search&amp;rid=200w.gif&amp;ct=g" alt="Shocked" /></p>
+
+<p>TL;DR <a href="https://github.com/sorted-bits/sidebar-order-card">Github link</a></p>
+
+<p>This has been a problem with Home Assistant for me, as I love to have 2 separate accounts, one admin and one normal user account. This way I can keep some stuff separated. Except, logging in and out resets your dashboard order <strong>every time</strong>! I like my dashboards sorted a certain way and this <em>hack</em> does it using a card.</p>
+
+<p>After installing this card, there are 2 modes this card provides, which are:</p>
+
+<ul>
+  <li>“Show me my current order and display a configuration”-mode</li>
+  <li>“Always make sure that this is my order”-mode</li>
+</ul>
+
+<h4 id="show-me-my-current-order-and-display-a-configuration-mode">Show me my current order and display a configuration-mode</h4>
+
+<p>This mode grabs your current configuration from the <code class="language-plaintext highlighter-rouge">local storage</code> and displays a configuration for this card, based on your current dashboard ordering/visibility.</p>
+
+<p>Make sure you add this card to your default dashboard configuration (or even ALL of them, but e.g. using the <a href="https://github.com/custom-cards/decluttering-card">decluttering card</a>).</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">custom:sidebar-order-card</span>
+  <span class="na">initial</span><span class="pi">:</span> <span class="kc">true</span></code></pre></figure>
+
+<p>The above configuration will display the card, with your current sidebar order. It will probably look something like this.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">custom:sidebar-order-card</span>
+  <span class="na">initial</span><span class="pi">:</span> <span class="kc">false</span>
+  <span class="na">items</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">home-dashboard</span>
+    <span class="pi">-</span> <span class="s">woonkamer-dashboard</span>
+    <span class="pi">-</span> <span class="s">energy</span>
+    <span class="pi">-</span> <span class="s">history</span>
+  <span class="na">hiddenItems</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">developer-tools</span>
+    <span class="pi">-</span> <span class="s">logbook</span></code></pre></figure>
+
+<h4 id="always-make-sure-that-this-is-my-order-mode">“Always make sure that this is my order”-mode</h4>
+
+<p>Copy the configuration that is displayed by your dashboard and replace the previous one. This will make the card invisible, but every time the dashboard loads, the configuration in the <code class="language-plaintext highlighter-rouge">local storage</code> will be overwritten en your menu will have the predefined order.</p>
+
+<h4 id="remarks">Remarks</h4>
+<ul>
+  <li>New dashboards will always be visible if they are not in your configuration. I <em>think</em> they will be added to the end of the menu.</li>
+  <li>Reordering your menu and not storing that configuration in your card configuration, will end up removing your new order.</li>
+  <li>This is probably not the greatest solution for this, as this would probably be a per-user server-side configuration, but until then, this works.</li>
+</ul>
+
+<p><a href="https://github.com/sorted-bits/sidebar-order-card">Grab the card here!</a></p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Button+" /><category term="MQTT" /><summary type="html"><![CDATA[After successfully getting my kids to install the Home Assistant app, there was one glaring problem. Dashboards are sorted alphabetically!]]></summary></entry><entry><title type="html">Display value from MQTT on Button+ display</title><link href="https://sortedbits.nl/blog/display-mqtt-value-on-button+" rel="alternate" type="text/html" title="Display value from MQTT on Button+ display" /><published>2023-12-23T15:52:35+01:00</published><updated>2023-12-23T15:52:35+01:00</updated><id>https://sortedbits.nl/blog/display-mqtt-value-on-button+</id><content type="html" xml:base="https://sortedbits.nl/blog/display-mqtt-value-on-button+"><![CDATA[<p>So, in <a href="/blog/publish-value-to-mqtt">the last post</a> I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that.<!--more--></p>
 
 <h3 id="living-room-temperature">Living room temperature</h3>
 
@@ -35,7 +83,7 @@
 <span class="na">MQTT topic</span><span class="pi">:</span> <span class="s">button.plus/thermostat/current</span>
 <span class="na">MQTT Payload</span><span class="pi">:</span> <span class="s">&lt;empty&gt;</span></code></pre></figure>
 
-<p>That’s it! This should display your value on the display.</p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Button+" /><category term="MQTT" /><summary type="html"><![CDATA[So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that. Living room temperature Now I want to display the current living temperature as a BIG value on the display of the Button+. This is pretty easy, now that we have that value in MQTT. In the previous post, I published the value to the topic button.plus/thermostat/current, which should contain the living room temperature in Celsius. The alignment on the simulator isn’t completely the same as on the device itself, it needs some tweaking sometimes. When opening the Button+ configuration page, you are able to add a new Display item by clicking Display configuration &gt; Add new empty display item. Appearance The first screen that shows, is the appearance configuration. These values are the ones I use to display it in the middle of the screen: x: 25 y: 30 Font size: 5 Alignment: Top Left Width: 50 Number rounding: 1 Label: &lt;empty&gt; Unit: °C MQTT Subscription Once you have set the appearance, you want to add a subscription to the topic we mentioned above. We do that by clicking Add new empty topic and then clicking the new topic that has just been created. In the topic details you need to fill in the following information: Event type: Value Broker Id: &lt;your broker name&gt; MQTT topic: button.plus/thermostat/current MQTT Payload: &lt;empty&gt; That’s it! This should display your value on the display.]]></summary></entry><entry><title type="html">Publish an Home Assistant value to MQTT</title><link href="https://sortedbits.nl/blog/publish-value-to-mqtt" rel="alternate" type="text/html" title="Publish an Home Assistant value to MQTT" /><published>2023-12-23T13:52:35+01:00</published><updated>2023-12-23T13:52:35+01:00</updated><id>https://sortedbits.nl/blog/publish-value-to-mqtt</id><content type="html" xml:base="https://sortedbits.nl/blog/publish-value-to-mqtt"><![CDATA[<p>A lot of times you want to display values on the <strong>Button+</strong> without already heaving that value available in MQTT, or maybe that value is in a different format and you want to want to publish a formatted version of that value.<!--more--></p>
+<p>That’s it! This should display your value on the display.</p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Button+" /><category term="MQTT" /><summary type="html"><![CDATA[So, in the last post I described how to publish a value from Home Assistant to MQTT. Lets do something useful with that.]]></summary></entry><entry><title type="html">Publish an Home Assistant value to MQTT</title><link href="https://sortedbits.nl/blog/publish-value-to-mqtt" rel="alternate" type="text/html" title="Publish an Home Assistant value to MQTT" /><published>2023-12-23T13:52:35+01:00</published><updated>2023-12-23T13:52:35+01:00</updated><id>https://sortedbits.nl/blog/publish-value-to-mqtt</id><content type="html" xml:base="https://sortedbits.nl/blog/publish-value-to-mqtt"><![CDATA[<p>A lot of times you want to display values on the <strong>Button+</strong> without already heaving that value available in MQTT, or maybe that value is in a different format and you want to want to publish a formatted version of that value.<!--more--></p>
 
 <p>To get started with this, I use a very simple automation for each value I need. Of course, this can probably be done in a more complex way, but the idea is to demonstrate how to get the value in MQTT.</p>
 
