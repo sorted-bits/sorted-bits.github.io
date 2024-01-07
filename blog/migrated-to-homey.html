@@ -9,11 +9,11 @@
 
   
 
-  <title>Open source home</title>
+  <title>Migrated to Homey</title>
 
   
 
-  <meta name="description" content="# My open source home ## Introduction The idea of building a home has been in my mind for a couple of years now, but because of life and &apos;situations&apos; we haven&apos;t had the chance to really get this off the ground. Currently the housing market in The Netherlands is...">
+  <meta name="description" content="In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about system being to difficult and there were a bunch of issues, which needed to be resolved. After a bunch of research and experiments with all...">
 
   
 
@@ -72,15 +72,17 @@
 
   
   <meta property="og:site_name" content="Sorted bits">
-  <meta property="og:title" content="Open source home">
-  <meta property="og:description" content="# My open source home ## Introduction The idea of building a home has been in my mind for a couple of years now, but because of life and &apos;situations&apos; we haven&apos;t had the chance to really get this off the ground. Currently the housing market in The Netherlands is...">
+  <meta property="og:title" content="Migrated to Homey">
+  <meta property="og:description" content="In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about system being to difficult and there were a bunch of issues, which needed to be resolved. After a bunch of research and experiments with all...">
 
   
 
   
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sortedbits.nl/open-source-home/">
-  <link rel="canonical" href="https://sortedbits.nl/open-source-home/">
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="">
+  <meta property="og:article:published_time" content="2024-01-07T00:00:00+01:00">
+  <meta property="og:url" content="https://sortedbits.nl/blog/migrated-to-homey">
+  <link rel="canonical" href="https://sortedbits.nl/blog/migrated-to-homey">
   
 
   
@@ -89,8 +91,8 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Open source home">
-  <meta property="twitter:description" content="# My open source home ## Introduction The idea of building a home has been in my mind for a couple of years now, but because of life and &apos;situations&apos; we haven&apos;t had the chance to really get this off the ground. Currently the housing market in The Netherlands is...">
+  <meta property="twitter:title" content="Migrated to Homey">
+  <meta property="twitter:description" content="In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about system being to difficult and there were a bunch of issues, which needed to be resolved. After a bunch of research and experiments with all...">
 
   
 
@@ -144,10 +146,14 @@
   <div class="container-md">
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-        <div class="page-heading">
-          <h1>Open source home</h1>
+        <div class="post-heading">
+          <h1>Migrated to Homey</h1>
           
 
+          
+            <span class="post-meta">Posted on January 7, 2024</span>
+            
+            
           
         </div>
       </div>
@@ -160,35 +166,95 @@
 
 
 
-<div class=" container-md " role="main">
+<div class=" container-md ">
   <div class="row">
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
       
 
-      <h1 id="my-open-source-home">My open source home</h1>
+      
 
-<h2 id="introduction">Introduction</h2>
-<p>The idea of building a home has been in my mind for a couple of years now, but because of life and ‘situations’ we haven’t had the chance to really get this off the ground.</p>
+      <article role="main" class="blog-post">
+        <p>In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about
+system being to difficult and there were a bunch of issues, which needed to be resolved.<!--more--></p>
 
-<p>Currently the housing market in The Netherlands is so tense that buying a piece of property is really hard. So while we are getting frustrated over that, I had the idea to put my ideas for our ideal home onto paper and also to find solutions for certain technical challenges there may be.</p>
+<p>After a bunch of research and experiments with all kinds of dashboard, it really felt like I was the only one using Home Assistant and the rest was accepting the quirks of the home.</p>
 
-<h2 id="the-idea">The idea</h2>
-<p>While we want to be environment conscious, we also want to make sure the house feels warm, luxurious and modern. This means that the house should be isolated really well, loads of solar panels and pulling heat from either air or the earth.</p>
+<p>So, while I had a 3 week break at work, I did some work and changed a bunch of stuff:</p>
 
-<h3 id="example">Example</h3>
-<p>For example, charging an electric car should use as much solar power as possible, but the following questions come to mind</p>
 <ul>
-  <li>How do we make sure we charge with mostly solar energy?</li>
-  <li>What if the washer and dryer are also running, the car should be told to slow down charging at that point.</li>
-  <li>There should be an override, so in case of an early morning trip, that the car is fully charged.</li>
-  <li>Should be usable for ‘almost’ everyone, also when you have no technical knowledge.</li>
+  <li>Switched out Home Assistant for a Homey Pro (2023).</li>
+  <li>Installed physical switches for lights in the kitchen, connected to Zigbee in-wall switches.</li>
+  <li>Installed a Zigbee in-wall switch in the office space, connected to a physical switch.</li>
+  <li>Installed my Button+ on the wall and configured the switches to perform tasks that we do every day.</li>
 </ul>
 
-<p>More and more of these ideas come to mind and I want to document those, not just for our own personal use, but also for other people to use.</p>
+<p>The switch to Homey started as an experiment, but the more I started tinkering with it, the more I saw the ease of use this system offers.</p>
 
+<p>After my 3 week holiday I had everything ported over and was actually ready to switch Home Assistant off, which I did.</p>
+
+<h3 id="missing-apps">Missing apps</h3>
+<p>First thing you do when trying to find an alternative to Home Assistant, is to see what hardware is compatible. If not everything you use is compatible, you look at ways to make it compatible. I was missing a couple of things in this.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/intergas-homey">Intergas Incomfort</a></td>
+      <td>In certification process</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.rainbird">Rainbird</a></td>
+      <td>Almost ready for certication</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.dsmrreader">DSMR Reader MQTT</a></td>
+      <td>In test</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.grott">Grott MQTT</a></td>
+      <td>In test</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The development of apps in Homey is a pretty fun thing to do, but also, some of this is in pretty beta state at the moment.</p>
+
+<h3 id="insights">Insights</h3>
+<p>I am a numbers and graphs nerd and this was actually one of the things that first grabbed me when I was looking for an easier alternative to Home Assistant. The graphs in Homey looked simple but beautiful.</p>
+
+<p><img src="/assets/images/20240107/homey-graph.png" alt="Power usage graph" /></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#Home Assistant">Home Assistant</a>
+          
+            <a href="/tags#Homey">Homey</a>
+          
+        </div>
+      
 
       
 
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/blog/home-assistant-padding-card" data-toggle="tooltip" data-placement="top" title="Home Assistant padding card">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
       
 
     </div>
@@ -237,7 +303,7 @@
       
       <p class="copyright text-muted">
       
-      2023
+      2024
 
       
 

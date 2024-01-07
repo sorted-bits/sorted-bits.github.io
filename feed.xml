@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://sortedbits.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sortedbits.nl/" rel="alternate" type="text/html" /><updated>2023-12-26T06:59:39+01:00</updated><id>https://sortedbits.nl/feed.xml</id><title type="html">Sorted bits</title><subtitle>Random stuff</subtitle><entry><title type="html">Home Assistant padding card</title><link href="https://sortedbits.nl/blog/home-assistant-padding-card" rel="alternate" type="text/html" title="Home Assistant padding card" /><published>2023-12-24T01:00:00+01:00</published><updated>2023-12-24T01:00:00+01:00</updated><id>https://sortedbits.nl/blog/home-assistant-padding-card</id><content type="html" xml:base="https://sortedbits.nl/blog/home-assistant-padding-card"><![CDATA[<p>I like my Home Assistant cards to be spaced out nicely, there, I said it!
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://sortedbits.nl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sortedbits.nl/" rel="alternate" type="text/html" /><updated>2024-01-07T12:27:48+01:00</updated><id>https://sortedbits.nl/feed.xml</id><title type="html">Sorted bits</title><subtitle>Random stuff</subtitle><entry><title type="html">Migrated to Homey</title><link href="https://sortedbits.nl/blog/migrated-to-homey" rel="alternate" type="text/html" title="Migrated to Homey" /><published>2024-01-07T00:00:00+01:00</published><updated>2024-01-07T00:00:00+01:00</updated><id>https://sortedbits.nl/blog/migrated-to-homey</id><content type="html" xml:base="https://sortedbits.nl/blog/migrated-to-homey"><![CDATA[<p>In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about
+system being to difficult and there were a bunch of issues, which needed to be resolved.<!--more--></p>
+
+<p>After a bunch of research and experiments with all kinds of dashboard, it really felt like I was the only one using Home Assistant and the rest was accepting the quirks of the home.</p>
+
+<p>So, while I had a 3 week break at work, I did some work and changed a bunch of stuff:</p>
+
+<ul>
+  <li>Switched out Home Assistant for a Homey Pro (2023).</li>
+  <li>Installed physical switches for lights in the kitchen, connected to Zigbee in-wall switches.</li>
+  <li>Installed a Zigbee in-wall switch in the office space, connected to a physical switch.</li>
+  <li>Installed my Button+ on the wall and configured the switches to perform tasks that we do every day.</li>
+</ul>
+
+<p>The switch to Homey started as an experiment, but the more I started tinkering with it, the more I saw the ease of use this system offers.</p>
+
+<p>After my 3 week holiday I had everything ported over and was actually ready to switch Home Assistant off, which I did.</p>
+
+<h3 id="missing-apps">Missing apps</h3>
+<p>First thing you do when trying to find an alternative to Home Assistant, is to see what hardware is compatible. If not everything you use is compatible, you look at ways to make it compatible. I was missing a couple of things in this.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/intergas-homey">Intergas Incomfort</a></td>
+      <td>In certification process</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.rainbird">Rainbird</a></td>
+      <td>Almost ready for certication</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.dsmrreader">DSMR Reader MQTT</a></td>
+      <td>In test</td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/sorted-bits/com.sortedbits.grott">Grott MQTT</a></td>
+      <td>In test</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The development of apps in Homey is a pretty fun thing to do, but also, some of this is in pretty beta state at the moment.</p>
+
+<h3 id="insights">Insights</h3>
+<p>I am a numbers and graphs nerd and this was actually one of the things that first grabbed me when I was looking for an easier alternative to Home Assistant. The graphs in Homey looked simple but beautiful.</p>
+
+<p><img src="/assets/images/20240107/homey-graph.png" alt="Power usage graph" /></p>]]></content><author><name></name></author><category term="Home Assistant" /><category term="Homey" /><summary type="html"><![CDATA[In my holiday break wetalked a lot about how Home Automation, but more importantly, home control was taken care of. There were some complaints about system being to difficult and there were a bunch of issues, which needed to be resolved.]]></summary></entry><entry><title type="html">Home Assistant padding card</title><link href="https://sortedbits.nl/blog/home-assistant-padding-card" rel="alternate" type="text/html" title="Home Assistant padding card" /><published>2023-12-24T01:00:00+01:00</published><updated>2023-12-24T01:00:00+01:00</updated><id>https://sortedbits.nl/blog/home-assistant-padding-card</id><content type="html" xml:base="https://sortedbits.nl/blog/home-assistant-padding-card"><![CDATA[<p>I like my Home Assistant cards to be spaced out nicely, there, I said it!
 <!--more--></p>
 
 <p>And while for all these styling changes, my first instinct was to grab the excellent <a href="https://github.com/thomasloven/lovelace-card-mod">card mod</a>, this does come with a limitation (when you are working with stacks): You can’t apply a styling to a card that doesn’t render an element itself, e.g. the <code class="language-plaintext highlighter-rouge">vertical-stack</code> and the problem is, I use that card all over the place.</p>
