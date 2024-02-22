@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Homey Apps</title>
+
+  
+
+  <meta name="description" content="Intergas Incomfort Install the app here Homey community topic Github repository This app adds support for heaters / heatpumps connected through the Intergas Incomfort gateways. It supports the following flows: When The target temperature changed, The temperature changed, The pressure changed, The generic alarm turned on, The generic alarm turned...">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Sorted bits">
+  <meta property="og:title" content="Homey Apps">
+  <meta property="og:description" content="Intergas Incomfort Install the app here Homey community topic Github repository This app adds support for heaters / heatpumps connected through the Intergas Incomfort gateways. It supports the following flows: When The target temperature changed, The temperature changed, The pressure changed, The generic alarm turned on, The generic alarm turned...">
+
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sortedbits.nl/homey/">
+  <link rel="canonical" href="https://sortedbits.nl/homey/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+
+  <meta property="twitter:title" content="Homey Apps">
+  <meta property="twitter:description" content="Intergas Incomfort Install the app here Homey community topic Github repository This app adds support for heaters / heatpumps connected through the Intergas Incomfort gateways. It supports the following flows: When The target temperature changed, The temperature changed, The pressure changed, The generic alarm turned on, The generic alarm turned...">
+
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="https://sortedbits.nl/">Sorted bits</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/homey">Homey</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+
+</nav>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>Homey Apps</h1>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md " role="main">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <div class="homey-app">
+    <div class="title">Intergas Incomfort</div>
+    <div class="links">
+        <div class="community-topic"><a href="https://homey.app/en-nl/app/com.sortedbits.incomfort/Intergas-Incomfort/" target="_blank">Install the app here</a></div>
+        <div class="community-topic"><a href="https://community.homey.app/t/app-pro-intergas/104611" target="_blank">Homey community topic</a></div>
+        <div class="github-repo"><a href="https://github.com/sorted-bits/intergas-homey" target="_blank">Github repository</a></div>
+    </div>
+    <div class="description">
+        This app adds support for heaters / heatpumps connected through the Intergas Incomfort gateways.<br />
+    </div>
+    It supports the following flows:
+    <div class="flows">
+        <div class="flow-type">When</div>
+        <div class="flow-items">
+            <div class="flow-item">
+            The target temperature changed,
+            </div>
+            <div class="flow-item">
+            The temperature changed,
+            </div>
+            <div class="flow-item">
+            The pressure changed,
+            </div>
+            <div class="flow-item">
+            The generic alarm turned on,
+            </div>
+            <div class="flow-item">
+            The generic alarm turned off,
+            </div>
+            <div class="flow-item">
+            Boiler starts pumping,
+            </div>
+            <div class="flow-item">
+            Boiler stops pumping,
+            </div>
+            <div class="flow-item">
+            Boiler starts burning,
+            </div>
+            <div class="flow-item">
+            Boiler stops burning,
+            </div>
+            <div class="flow-item">
+            Display code changed
+            </div>
+        </div>
+        <div class="flow-type">And...</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                The generic alarm is on
+            </div>
+        </div>
+        <div class="flow-type">Then...</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                Set the temperature °C
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homey-app">
+    <div class="title">Rain Bird</div>
+    <div class="links">
+        <div class="community-topic"><a href="https://homey.app/en-nl/app/com.sortedbits.rainbird/Rain-Bird/" target="_blank">Install the app here</a></div>
+        <div class="community-topic"><a href="https://community.homey.app/t/app-pro-rain-bird/104470" target="_blank">Homey community topic</a></div>
+        <div class="github-repo"><a href="https://github.com/sorted-bits/com.sortedbits.rainbird" target="_blank">Github repository</a></div>
+    </div>
+    <div class="description">
+        This app adds support for Rain Bird irrigation hardware to Homey<br />
+        <br />
+        This app should be compatible with any controller that supports the Rainbird LNK Wifi module, including:<br />
+        <br />
+        - ESP-Me<br />
+        - ESP-TM2<br />
+        - ESP-RZXe<br />
+        - ESP-ME3<br />
+        <br />
+        Currently this app has been tested with the following Rainbird models:<br />
+        <br />
+        - Rainbird ESP-RZXe6i indoor WIFI<br />
+        <br />
+        If your model isn't listed here, but the integration works, please let me know, so I can update this list.<br />
+    </div>
+    It supports the following flows:
+    <div class="flows">
+        <div class="flow-type">When</div>
+        <div class="flow-items">
+            <div class="flow-item">
+            Starts irrigation
+            </div>
+            <div class="flow-item">
+            Stops irrigation
+            </div>
+        </div>
+        <div class="flow-type">And...</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                Is active
+            </div>
+            <div class="flow-item">
+                Zone [zone] is active
+            </div>
+        </div>
+        <div class="flow-type">Then...</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                Start zone [zone]
+            </div>
+            <div class="flow-item">
+                Start zone [zone] for [minutes] minutes
+            </div>
+            <div class="flow-item">
+                Stop zone [zone]
+            </div>
+            <div class="flow-item">
+                Stop irrigation
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homey-app">
+    <div class="title">Grott</div>
+    <div class="links">
+        <div class="community-topic"><a href="https://homey.app/en-nl/app/com.sortedbits.grott/Grott/" target="_blank">Install the app here</a></div>
+        <div class="community-topic"><a href="https://community.homey.app/t/app-pro-grott/103267" target="_blank">Homey community topic</a></div>
+        <div class="github-repo"><a href="https://github.com/sorted-bits/com.sortedbits.grott" target="_blank">Github repository</a></div>
+    </div>
+    <div class="description">
+        This app adds support for Grott to Homey<br />
+        <br />
+    </div>
+    It supports the following flows:
+    <div class="flows">
+        <div class="flow-type">When</div>
+        <div class="flow-items">
+            <div class="flow-item">
+            The power meter changed
+            </div>
+            <div class="flow-item">
+            The power changed
+            </div>
+            <div class="flow-item">
+                And a lot more!
+            </div>
+        </div>
+
+        <div class="flow-type">Then...</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                Reset the value for Energy today
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homey-app">
+    <div class="title">DSMR Reader</div>
+    <div class="links">
+        <div class="github-repo"><a href="https://github.com/sorted-bits/com.sortedbits.dsmrreader" target="_blank">Github repository</a></div>
+    </div>
+    <div class="description">
+        This app adds support for DSMR Reader MQTT topics<br />
+        <br />
+    </div>
+    It supports the following flows:
+    <div class="flows">
+        <div class="flow-type">When</div>
+        <div class="flow-items">
+            <div class="flow-item">
+                A lot of triggers
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .homey-app {
+        font-size: 16px;
+        border: solid 1px silver;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        margin: 6px 6px 20px 6px;
+    }
+
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+
+    .flow-items {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .flow-type {
+        font-weight: bold;
+        padding-top: 8px;
+    }
+
+    .flow-item {
+        padding: 3px;
+        border: solid 1px silver;
+        border-radius: 5px;
+        margin: 4px;
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 24px;
+        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .github-repo,
+    .community-topic {
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    .github-repo:before,
+    .community-topic:before {
+        width: 24px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+        height: 20px;
+        display: inline-block;
+        content: "";
+        margin-top: 4px;
+        position: relative;
+        top: 4px;
+    }
+
+    .github-repo:before {
+        background-image: url(/assets/images/homey/github.png);
+    }
+
+    .community-topic:before {
+        background-image: url(/assets/images/homey/icon.png);
+    }
+
+    .description {
+        padding-top: 20px;
+    }
+
+
+</style>
+
+
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="mailto:wim@sortedbits.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/sorted-bits" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/wim-haanstra-91023962/" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://stackoverflow.com/users/69313/wim-haanstra" title="StackOverflow">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">StackOverflow</span>
+   </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+      2024
+
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
